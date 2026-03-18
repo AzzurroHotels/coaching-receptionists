@@ -1,0 +1,2019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Azzurro Hotels Coaching Record</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0a1520;
+    --ink2: #162436;
+    --ink3: #1e3348;
+    --azure: #1a4a7a;
+    --azure2: #2260a0;
+    --azure-light: #e8f2fc;
+    --azure-pale: #f0f6fd;
+    --gold: #b8922a;
+    --gold2: #d4aa50;
+    --gold3: #ecdaa0;
+    --gold-light: #faf6ec;
+    --cream: #f4f1e8;
+    --paper: #fefdf8;
+    --border: #ddd8cc;
+    --border2: #c8c2b4;
+    --text: #18242e;
+    --text2: #4a5a68;
+    --muted: #8a96a4;
+    --success: #1e6040;
+    --success-bg: #eaf5f0;
+    --danger: #8c2a1e;
+    --danger-bg: #fcecea;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    color: var(--text);
+    padding: 3rem 1rem 5rem;
+    min-height: 100vh;
+    background-color: #d6e8f4;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800'%3E%3Cdefs%3E%3CradialGradient id='bg' cx='50%25' cy='50%25' r='70%25'%3E%3Cstop offset='0%25' stop-color='%23c8dff0'/%3E%3Cstop offset='100%25' stop-color='%23b0cde6'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='800' height='800' fill='url(%23bg)'/%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='60'%3E%3Cpath d='M0 30 Q30 0 60 30 Q90 60 120 30' fill='none' stroke='%231a4a7a' stroke-width='0.4' stroke-opacity='0.12'/%3E%3Cpath d='M0 30 Q30 60 60 30 Q90 0 120 30' fill='none' stroke='%231a4a7a' stroke-width='0.4' stroke-opacity='0.06'/%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Crect x='29' y='0' width='2' height='2' fill='%23b8922a' fill-opacity='0.25'/%3E%3Crect x='0' y='29' width='2' height='2' fill='%23b8922a' fill-opacity='0.25'/%3E%3Crect x='58' y='29' width='2' height='2' fill='%23b8922a' fill-opacity='0.25'/%3E%3Crect x='29' y='58' width='2' height='2' fill='%23b8922a' fill-opacity='0.25'/%3E%3C/svg%3E");
+    background-size: cover, 120px 60px, 60px 60px;
+    background-attachment: fixed, scroll, scroll;
+  }
+
+  /* Decorative background monogram */
+  body::before {
+    content: 'A';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40vw;
+    font-weight: 300;
+    color: rgba(26, 74, 122, 0.04);
+    pointer-events: none;
+    z-index: 0;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    user-select: none;
+  }
+
+  .page {
+    max-width: 820px;
+    margin: 0 auto;
+    background: var(--paper);
+    border: 1px solid rgba(184,146,42,0.3);
+    border-radius: 1px;
+    box-shadow:
+      0 0 0 4px rgba(255,253,248,0.6),
+      0 0 0 5px rgba(184,146,42,0.15),
+      0 8px 16px rgba(10,21,32,0.12),
+      0 24px 64px rgba(10,21,32,0.16);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Corner ornaments on the page card */
+  .page::before, .page::after {
+    content: '';
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .page::before {
+    top: -1px; left: -1px;
+    border-top: 2px solid var(--gold2);
+    border-left: 2px solid var(--gold2);
+  }
+  .page::after {
+    bottom: -1px; right: -1px;
+    border-bottom: 2px solid var(--gold2);
+    border-right: 2px solid var(--gold2);
+  }
+  .page-corner-tr, .page-corner-bl {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .page-corner-tr { top: -1px; right: -1px; border-top: 2px solid var(--gold2); border-right: 2px solid var(--gold2); }
+  .page-corner-bl { bottom: -1px; left: -1px; border-bottom: 2px solid var(--gold2); border-left: 2px solid var(--gold2); }
+
+  /* ── Header ─────────────────────────────────────────── */
+  .form-header {
+    background: var(--ink);
+    padding: 0;
+    border-radius: 1px 1px 0 0;
+    position: relative;
+    overflow: hidden;
+  }
+  /* Wave overlay on header */
+  .form-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='80'%3E%3Cpath d='M0 40 Q25 20 50 40 Q75 60 100 40 Q125 20 150 40 Q175 60 200 40' fill='none' stroke='%231a4a7a' stroke-width='1' stroke-opacity='0.5'/%3E%3Cpath d='M0 55 Q25 35 50 55 Q75 75 100 55 Q125 35 150 55 Q175 75 200 55' fill='none' stroke='%231a4a7a' stroke-width='0.8' stroke-opacity='0.3'/%3E%3Cpath d='M0 25 Q25 5 50 25 Q75 45 100 25 Q125 5 150 25 Q175 45 200 25' fill='none' stroke='%231a4a7a' stroke-width='0.6' stroke-opacity='0.2'/%3E%3C/svg%3E");
+    background-size: 200px 80px;
+    opacity: 1;
+  }
+  /* Gold geometric overlay */
+  .form-header::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpolygon points='40,2 78,40 40,78 2,40' fill='none' stroke='%23b8922a' stroke-width='0.4' stroke-opacity='0.12'/%3E%3Cpolygon points='40,14 66,40 40,66 14,40' fill='none' stroke='%23b8922a' stroke-width='0.3' stroke-opacity='0.08'/%3E%3C/svg%3E");
+    background-size: 80px 80px;
+    opacity: 1;
+  }
+  .header-gold-top {
+    height: 3px;
+    background: linear-gradient(to right, transparent, var(--gold2), var(--gold), var(--gold2), transparent);
+    position: relative;
+    z-index: 1;
+  }
+  .header-inner {
+    position: relative;
+    z-index: 1;
+    padding: 2.8rem 3rem 2.4rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  .header-brand { }
+  .header-eyebrow {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--gold2);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .header-eyebrow::before, .header-eyebrow::after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 1px;
+    background: var(--gold2);
+    opacity: 0.5;
+  }
+  .header-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.6rem;
+    font-weight: 300;
+    color: #fff;
+    letter-spacing: 0.06em;
+    line-height: 1.05;
+  }
+  .header-title em {
+    font-style: italic;
+    color: var(--gold3);
+    font-weight: 300;
+  }
+  .header-sub {
+    font-size: 10px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.1em;
+    margin-top: 0.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+  .header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+  .header-badge {
+    font-size: 8px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold2);
+    border: 1px solid rgba(184,146,42,0.4);
+    padding: 7px 16px;
+    border-radius: 0;
+    white-space: nowrap;
+    position: relative;
+  }
+  .header-badge::before, .header-badge::after {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-color: var(--gold2);
+    border-style: solid;
+    opacity: 0.6;
+  }
+  .header-badge::before { top: -2px; left: -2px; border-width: 1px 0 0 1px; }
+  .header-badge::after  { bottom: -2px; right: -2px; border-width: 0 1px 1px 0; }
+  .header-monogram {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.2rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.06);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    pointer-events: none;
+  }
+  .header-gold-bottom {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── Form body ───────────────────────────────────────── */
+  .form-body { padding: 3rem; }
+
+  /* ── Meta grid ───────────────────────────────────────── */
+  .meta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 2rem;
+    margin-bottom: 2.8rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .meta-field.span3 { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; }
+  .meta-field label {
+    display: block;
+    font-size: 9px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .meta-field input, .meta-field select {
+    width: 100%;
+    padding: 9px 0;
+    border: none;
+    border-bottom: 1px solid var(--border2);
+    border-radius: 0;
+    font-size: 13px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    color: var(--text);
+    background: transparent;
+    outline: none;
+    transition: border-color .2s;
+    -webkit-appearance: none;
+  }
+  .meta-field input:focus, .meta-field select:focus { border-bottom-color: var(--gold); }
+  .meta-field input[readonly] { color: var(--muted); }
+
+  /* ── Section ─────────────────────────────────────────── */
+  .section { margin-bottom: 2.5rem; }
+  .section-label { display: flex; align-items: flex-start; gap: 18px; margin-bottom: 1.4rem; }
+  .section-num {
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--gold2);
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    flex-shrink: 0;
+    margin-top: 1px;
+    position: relative;
+    background: var(--gold-light);
+  }
+  .section-num::before {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border: 1px solid rgba(184,146,42,0.2);
+    pointer-events: none;
+  }
+  /* No inner border on custom-coloured nums */
+  .section-num[style]::before { display: none; }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+  }
+  .section-sub { font-size: 11px; color: var(--muted); margin-top: 3px; font-weight: 300; letter-spacing: 0.03em; }
+  .divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border2), transparent);
+    margin: 2.5rem 0;
+    position: relative;
+  }
+  .divider::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    width: 6px;
+    height: 6px;
+    border: 1px solid var(--gold2);
+    background: var(--paper);
+  }
+  .divider::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    width: 10px;
+    height: 10px;
+    border: 1px solid rgba(184,146,42,0.2);
+    background: transparent;
+  }
+
+  /* ── Issues ──────────────────────────────────────────── */
+  .issue-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 1.2rem; }
+  .issue-check {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 14px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all .18s;
+    user-select: none;
+    background: var(--paper);
+    position: relative;
+  }
+  .issue-check:hover { border-color: var(--gold2); background: var(--gold-light); }
+  .issue-check input[type=checkbox] { display: none; }
+  .check-box {
+    width: 15px;
+    height: 15px;
+    border: 1px solid var(--border2);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .15s;
+  }
+  .issue-check.checked { border-color: var(--azure); background: var(--azure-pale); }
+  .issue-check.checked .check-box { background: var(--azure); border-color: var(--azure); }
+  .check-tick { display: none; color: #fff; font-size: 9px; }
+  .issue-check.checked .check-tick { display: block; }
+  .check-label { font-size: 12.5px; color: var(--text); font-weight: 400; letter-spacing: 0.01em; }
+
+  /* ── Autofill hint ───────────────────────────────────── */
+  .autofill-hint {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 16px;
+    background: var(--azure-pale);
+    border: 1px solid rgba(26,74,122,0.2);
+    border-left: 3px solid var(--azure);
+    margin-bottom: 1.2rem;
+    font-size: 12px;
+    color: var(--azure);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+  .autofill-hint.show { display: flex; }
+  .autofill-btn {
+    margin-left: auto;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    background: var(--azure);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-family: 'Jost', sans-serif;
+    white-space: nowrap;
+    transition: background .15s;
+  }
+  .autofill-btn:hover { background: var(--azure2); }
+
+  /* ── Fields ──────────────────────────────────────────── */
+  .field-group { margin-bottom: 1.2rem; }
+  .field-group label {
+    display: block;
+    font-size: 9px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    font-size: 13px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    color: var(--text);
+    resize: vertical;
+    outline: none;
+    line-height: 1.7;
+    transition: border-color .15s;
+    min-height: 90px;
+    background: var(--paper);
+    border-radius: 0;
+  }
+  textarea:focus { border-color: var(--gold); }
+  textarea.staff-area { background: #f5fbf7; border-color: #a8ccb4; min-height: 110px; }
+  textarea.staff-area:focus { border-color: var(--success); }
+  textarea.autofilled { background: var(--gold-light); border-color: var(--gold3); }
+
+  /* ── Actions ─────────────────────────────────────────── */
+  .action-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
+  .action-num {
+    width: 22px;
+    height: 22px;
+    border: 1px solid var(--gold2);
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 10px;
+    background: var(--gold-light);
+  }
+  .action-input {
+    flex: 1;
+    padding: 9px 12px;
+    border: 1px solid var(--border);
+    font-size: 13px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    color: var(--text);
+    outline: none;
+    transition: all .15s;
+    background: var(--paper);
+    border-radius: 0;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    user-select: none;
+  }
+  .action-input:hover { border-color: var(--gold2); background: var(--gold-light); }
+  .action-input.autofilled { background: var(--gold-light); border-color: var(--gold3); }
+  .action-del { background: none; border: none; color: var(--border2); cursor: pointer; font-size: 16px; padding: 8px 4px; margin-top: 4px; transition: color .15s; }
+  .action-del:hover { color: var(--danger); }
+  .add-action-btn {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: none;
+    border: 1px dashed rgba(184,146,42,0.4);
+    padding: 9px 20px;
+    cursor: pointer;
+    font-family: 'Jost', sans-serif;
+    transition: all .15s;
+    margin-top: 4px;
+  }
+  .add-action-btn:hover { background: var(--gold-light); border-color: var(--gold); }
+
+  /* ── Staff promise ───────────────────────────────────────── */
+  .promise-section {
+    background: linear-gradient(135deg, #f8f5ff 0%, #f2eeff 100%);
+    border: 1px solid rgba(90,50,160,0.18);
+    border-left: 3px solid #7c4dcc;
+    padding: 1.8rem;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+  .promise-section::before {
+    content: '';
+    position: absolute;
+    top: 8px; right: 8px;
+    width: 40px; height: 40px;
+    border-top: 1px solid rgba(90,50,160,0.12);
+    border-right: 1px solid rgba(90,50,160,0.12);
+    pointer-events: none;
+  }
+  .promise-section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 1.2rem; }
+  .promise-icon {
+    width: 32px; height: 32px;
+    background: #7c4dcc;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; color: #fff; flex-shrink: 0;
+  }
+  .promise-statement {
+    background: rgba(255,255,255,0.7);
+    border: 1px solid rgba(90,50,160,0.15);
+    padding: 1.1rem 1.3rem;
+    font-size: 13px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    color: var(--text);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+  .promise-statement strong { font-weight: 500; font-style: normal; color: #5a32a0; }
+  .promise-items { display: flex; flex-direction: column; gap: 8px; margin-bottom: 1.2rem; }
+  .promise-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 13px; font-weight: 300; color: var(--text); line-height: 1.6;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.6);
+    border: 1px solid rgba(90,50,160,0.1);
+  }
+  .promise-bullet {
+    width: 6px; height: 6px; border-radius: 50%; background: #7c4dcc;
+    flex-shrink: 0; margin-top: 7px;
+  }
+  .promise-signature-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+    margin-top: 1.2rem; padding-top: 1.2rem;
+    border-top: 1px solid rgba(90,50,160,0.15);
+  }
+  .promise-sig-label {
+    font-size: 9px; font-weight: 500; text-transform: uppercase;
+    letter-spacing: 0.14em; color: #7c4dcc; margin-bottom: 6px; display: block;
+  }
+  .promise-sig-input {
+    width: 100%; padding: 8px 0; border: none;
+    border-bottom: 1px solid rgba(90,50,160,0.3);
+    font-size: 14px; font-family: 'Jost', sans-serif; font-weight: 400;
+    font-style: italic; color: #5a32a0; background: transparent; outline: none;
+    transition: border-color .15s;
+  }
+  .promise-sig-input:focus { border-bottom-color: #7c4dcc; }
+  .promise-sig-input::placeholder { color: var(--muted); font-style: italic; }
+  .promise-sig-date { font-size: 10px; color: var(--muted); margin-top: 5px; }
+
+  /* ── Staff response ──────────────────────────────────── */
+  .staff-section {
+    background: linear-gradient(135deg, #f4fbf6 0%, #ecf7f1 100%);
+    border: 1px solid #a8ccb4;
+    border-left: 3px solid var(--success);
+    padding: 1.8rem;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+  .staff-section::before {
+    content: '';
+    position: absolute;
+    top: 8px; right: 8px;
+    width: 40px; height: 40px;
+    border-top: 1px solid rgba(30,96,64,0.12);
+    border-right: 1px solid rgba(30,96,64,0.12);
+    pointer-events: none;
+  }
+  .staff-section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 1.2rem; }
+  .staff-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--success);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  /* ── Agreement ───────────────────────────────────────── */
+  .agreement-section {
+    background: linear-gradient(135deg, var(--gold-light), #f7f2e2);
+    border: 1px solid rgba(184,146,42,0.3);
+    border-left: 3px solid var(--gold);
+    padding: 1.8rem;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+  .agreement-section::before {
+    content: '';
+    position: absolute;
+    top: 8px; right: 8px;
+    width: 40px; height: 40px;
+    border-top: 1px solid rgba(184,146,42,0.2);
+    border-right: 1px solid rgba(184,146,42,0.2);
+    pointer-events: none;
+  }
+  .agreement-section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 1.2rem; }
+  .agreement-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .agree-options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 0.5rem; }
+  .agree-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+    border: 1px solid rgba(184,146,42,0.25);
+    cursor: pointer;
+    transition: all .15s;
+    user-select: none;
+    background: rgba(255,253,248,0.8);
+  }
+  .agree-option:hover { border-color: var(--gold); background: var(--paper); }
+  .agree-option.selected-agree { border-color: var(--success); background: var(--success-bg); }
+  .agree-option input[type=radio] { display: none; }
+  .radio-circle {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border2);
+    flex-shrink: 0;
+    margin-top: 2px;
+    transition: all .15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .agree-option.selected-agree .radio-circle { background: var(--success); border-color: var(--success); }
+  .radio-dot { display: none; width: 5px; height: 5px; border-radius: 50%; background: #fff; }
+  .agree-option.selected-agree .radio-dot { display: block; }
+  .agree-text { font-size: 13px; color: var(--text); line-height: 1.5; }
+  .agree-text strong { display: block; font-weight: 500; margin-bottom: 2px; font-size: 13px; }
+  .agree-text span { color: var(--text2); font-size: 12px; font-weight: 300; }
+
+  /* ── Acknowledgement ─────────────────────────────────── */
+  .ack-section {
+    background: linear-gradient(135deg, var(--azure-pale), #e4edf6);
+    border: 1px solid rgba(26,74,122,0.2);
+    border-left: 3px solid var(--azure);
+    padding: 1.8rem;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+  .ack-section::before {
+    content: '';
+    position: absolute;
+    top: 8px; right: 8px;
+    width: 40px; height: 40px;
+    border-top: 1px solid rgba(26,74,122,0.15);
+    border-right: 1px solid rgba(26,74,122,0.15);
+    pointer-events: none;
+  }
+  .ack-header { display: flex; align-items: center; gap: 14px; margin-bottom: 1.2rem; }
+  .ack-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--azure);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    color: rgba(255,255,255,0.9);
+    flex-shrink: 0;
+  }
+  .reviewed-check {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border: 1px solid rgba(26,74,122,0.2);
+    cursor: pointer;
+    transition: all .15s;
+    user-select: none;
+    background: rgba(255,253,248,0.8);
+  }
+  .reviewed-check:hover { border-color: var(--azure); background: var(--paper); }
+  .reviewed-check.checked { border-color: var(--success); background: var(--success-bg); }
+  .reviewed-check input { display: none; }
+  .rc-box {
+    width: 16px;
+    height: 16px;
+    border: 1px solid var(--border2);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .15s;
+    font-size: 10px;
+  }
+  .reviewed-check.checked .rc-box { background: var(--success); border-color: var(--success); color: #fff; }
+
+  /* ── Summary ─────────────────────────────────────────── */
+  .summary-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.1rem 1.6rem;
+    background: var(--ink);
+    cursor: pointer;
+    margin-bottom: 1rem;
+    transition: background .15s;
+    position: relative;
+    overflow: hidden;
+  }
+  .summary-trigger::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='40'%3E%3Cpath d='M0 20 Q25 5 50 20 Q75 35 100 20' fill='none' stroke='%231a4a7a' stroke-width='1' stroke-opacity='0.5'/%3E%3C/svg%3E");
+    background-size: 100px 40px;
+  }
+  .summary-trigger:hover { background: var(--ink2); }
+  .summary-trigger-left { display: flex; align-items: center; gap: 14px; position: relative; }
+  .summary-trigger h4 { font-size: 10px; font-weight: 500; color: #fff; letter-spacing: 0.14em; text-transform: uppercase; }
+  .summary-trigger p { font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 2px; font-weight: 300; }
+  .summary-trigger-arrow { color: var(--gold2); font-size: 18px; transition: transform .2s; position: relative; }
+  .summary-trigger.open .summary-trigger-arrow { transform: rotate(90deg); }
+  .summary-icon {
+    width: 30px;
+    height: 30px;
+    background: rgba(184,146,42,0.12);
+    border: 1px solid rgba(184,146,42,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+
+  .summary-box { display: none; background: var(--paper); border: 1px solid var(--border); overflow: hidden; }
+  .summary-box.open { display: block; }
+  .summary-section-block { padding: 1.2rem 1.5rem; border-bottom: 1px solid rgba(0,0,0,0.05); }
+  .summary-section-block:last-child { border-bottom: none; }
+  .summary-section-block h5 { font-size: 8px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--gold); margin-bottom: 0.5rem; font-weight: 500; }
+  .summary-section-block p { font-size: 13px; color: var(--text); line-height: 1.7; font-weight: 300; }
+  .summary-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .summary-tag { font-size: 11px; padding: 3px 10px; background: #f0f2f5; color: var(--text2); }
+  .summary-tag.issue { background: var(--danger-bg); color: var(--danger); }
+  .summary-tag.action { background: var(--gold-light); color: var(--gold); }
+  .summary-tag.agree { background: var(--success-bg); color: var(--success); }
+
+  .summary-full { padding: 1.5rem; background: var(--cream); border-top: 1px solid var(--border); }
+  .summary-full h5 { font-size: 8px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--gold); margin-bottom: 0.8rem; font-weight: 500; }
+  .summary-full-text { font-size: 12.5px; color: var(--text); line-height: 1.9; white-space: pre-wrap; font-weight: 300; }
+  .summary-gen-btn {
+    margin-top: 1rem;
+    padding: 10px 24px;
+    background: var(--ink);
+    color: var(--gold3);
+    border: none;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: 'Jost', sans-serif;
+    transition: background .15s;
+  }
+  .summary-gen-btn:hover { background: var(--ink2); }
+
+  /* ── Print summary ───────────────────────────────────── */
+  .print-summary { display: none; font-family: 'Jost', sans-serif; color: #1a2330; }
+  .print-confidential-bar { background: #0a1520; padding: 5px 2.5rem; font-size: 8px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(255,255,255,0.45); text-align: center; }
+  .print-header-bar { background: var(--ink); padding: 1.5rem 2.5rem; display: flex; align-items: center; justify-content: space-between; position: relative; overflow: hidden; }
+  .print-header-bar::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='60'%3E%3Cpath d='M0 30 Q50 10 100 30 Q150 50 200 30' fill='none' stroke='%231a4a7a' stroke-width='1' stroke-opacity='0.5'/%3E%3C/svg%3E"); background-size: 200px 60px; }
+  .print-header-gold { height: 2px; background: linear-gradient(to right, transparent, var(--gold2), var(--gold), var(--gold2), transparent); }
+  .print-header-left { position: relative; }
+  .print-header-eyebrow { font-size: 7.5px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold2); margin-bottom: 4px; }
+  .print-header-org { font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; font-weight: 300; color: #fff; letter-spacing: 0.08em; }
+  .print-header-org em { font-style: italic; color: var(--gold3); }
+  .print-header-right { position: relative; text-align: right; }
+  .print-header-doc-badge { font-size: 7.5px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold2); border: 1px solid rgba(184,146,42,0.35); padding: 4px 12px; display: inline-block; margin-bottom: 5px; }
+  .print-header-generated { font-size: 9px; color: rgba(255,255,255,0.3); letter-spacing: 0.05em; }
+
+  .print-body { padding: 1.8rem 2.8rem 2rem; }
+  .print-doc-title { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 300; color: var(--ink); letter-spacing: 0.03em; }
+  .print-doc-title em { font-style: italic; color: var(--gold); }
+  .print-doc-sub { font-size: 9.5px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 300; margin-top: 2px; }
+  .print-title-rule { height: 1px; background: linear-gradient(to right, var(--ink), var(--gold2), transparent); margin: 0.65rem 0 1.4rem; }
+
+  .print-meta-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; border: 1px solid var(--border); margin-bottom: 1.6rem; }
+  .print-meta-cell { padding: 0.7rem 1rem; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .print-meta-cell:nth-child(3n) { border-right: none; }
+  .print-meta-cell:nth-last-child(-n+3):nth-child(3n+1),
+  .print-meta-cell:nth-last-child(-n+3):nth-child(3n+2),
+  .print-meta-cell:nth-last-child(-n+3):nth-child(3n)  { border-bottom: none; }
+  .print-meta-label { font-size: 7px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.16em; color: var(--gold); margin-bottom: 3px; }
+  .print-meta-value { font-size: 12px; color: var(--ink); font-weight: 500; }
+  .print-meta-sub { font-size: 10px; color: var(--text2); margin-top: 1px; font-weight: 300; }
+
+  .print-section { margin-bottom: 1.3rem; page-break-inside: avoid; }
+  .print-section-heading { font-size: 7.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.18em; color: var(--gold); margin-bottom: 0.5rem; padding-bottom: 0.3rem; border-bottom: 1px solid var(--gold3); }
+  .print-section-text { font-size: 11px; color: #1a2330; line-height: 1.85; font-weight: 300; margin-bottom: 0.3rem; }
+  .print-section-text strong { font-weight: 500; color: var(--ink); }
+  .print-section-note { font-size: 10px; color: var(--text2); line-height: 1.7; font-weight: 300; font-style: italic; margin-bottom: 0.25rem; }
+  .print-not-provided { font-size: 10.5px; color: var(--muted); font-style: italic; }
+
+  .print-issue-list { list-style: none; padding: 0; margin: 0.25rem 0 0.5rem; }
+  .print-issue-list li { display: flex; align-items: baseline; gap: 7px; font-size: 11px; color: #1a2330; padding: 2px 0; line-height: 1.55; font-weight: 400; }
+  .print-issue-dot { color: var(--gold); font-weight: 700; flex-shrink: 0; font-size: 10px; }
+
+  .print-action-list { list-style: none; padding: 0; margin: 0.25rem 0 0; }
+  .print-action-list li { display: flex; gap: 9px; font-size: 11px; color: #1a2330; line-height: 1.75; margin-bottom: 0.4rem; font-weight: 300; }
+  .print-action-num { width: 15px; height: 15px; min-width: 15px; border: 1px solid var(--gold2); color: var(--gold); font-size: 7.5px; font-weight: 600; display: flex; align-items: center; justify-content: center; margin-top: 3px; flex-shrink: 0; background: var(--gold-light); }
+
+  .print-commitment-block { background: #f8f5ff; border: 1px solid rgba(90,50,160,0.18); border-left: 3px solid #7c4dcc; padding: 0.85rem 1rem; margin-bottom: 0.4rem; }
+  .print-commitment-statement { font-size: 11px; color: #1a2330; line-height: 1.85; font-weight: 300; font-style: italic; margin-bottom: 0.5rem; }
+  .print-commitment-items { list-style: none; padding: 0; margin: 0; }
+  .print-commitment-items li { display: flex; gap: 7px; font-size: 10.5px; color: #3a2060; line-height: 1.65; margin-bottom: 2px; font-weight: 300; }
+  .print-commitment-dot { color: #7c4dcc; font-weight: 700; flex-shrink: 0; }
+
+  .print-status-row { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 0.3rem; }
+  .print-status-item { display: flex; align-items: center; gap: 7px; font-size: 10.5px; color: var(--text2); }
+  .print-badge { display: inline-block; padding: 2px 8px; font-size: 8.5px; font-weight: 500; letter-spacing: 0.05em; }
+  .print-badge.green { background: var(--success-bg); color: var(--success); }
+  .print-badge.grey { background: #f0f2f5; color: var(--muted); }
+
+  .print-footer-area { margin-top: 1.8rem; padding-top: 0.9rem; border-top: 1px solid var(--border); }
+  .print-footer-notice { font-size: 8.5px; color: var(--muted); line-height: 1.65; font-weight: 300; font-style: italic; margin-bottom: 0.5rem; letter-spacing: 0.02em; }
+  .print-footer-row { display: flex; justify-content: space-between; font-size: 8.5px; color: var(--muted); letter-spacing: 0.05em; }
+
+  @page { size: A4; margin: 14mm 18mm 16mm 18mm; }
+
+  @media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    body { background: #fff !important; padding: 0 !important; margin: 0 !important; }
+    body::before { display: none !important; }
+    .page { box-shadow: none !important; border: none !important; max-width: 100% !important; border-radius: 0 !important; }
+    .page::before, .page::after, .page-corner-tr, .page-corner-bl { display: none !important; }
+    .form-header, .form-body, .form-footer { display: none !important; }
+    .print-summary { display: block !important; }
+    .print-section { page-break-inside: avoid; }
+    .modal-overlay, .others-modal-overlay { display: none !important; }
+  }
+
+  .others-hint {
+    font-size: 10px;
+    color: var(--azure);
+    margin-left: auto;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    font-style: italic;
+  }
+
+  /* ── Others issue modal ───────────────────────────────── */
+  .others-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10,21,32,0.6);
+    z-index: 1001;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(2px);
+    padding: 1rem;
+  }
+  .others-modal-overlay.open { display: flex; }
+  .others-modal-box {
+    background: var(--paper);
+    width: 100%;
+    max-width: 520px;
+    border: 1px solid var(--border2);
+    position: relative;
+    box-shadow: 0 8px 32px rgba(10,21,32,0.24);
+  }
+  .others-modal-box::before { top: -1px; left: -1px; border-top: 1.5px solid var(--gold2); border-left: 1.5px solid var(--gold2); content: ''; position: absolute; width: 20px; height: 20px; pointer-events: none; z-index: 2; }
+  .others-modal-box::after  { bottom: -1px; right: -1px; border-bottom: 1.5px solid var(--gold2); border-right: 1.5px solid var(--gold2); content: ''; position: absolute; width: 20px; height: 20px; pointer-events: none; z-index: 2; }
+
+  @media print { .others-modal-overlay { display: none !important; } }
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10,21,32,0.6);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(2px);
+    padding: 1rem;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-box {
+    background: var(--paper);
+    width: 100%;
+    max-width: 560px;
+    border: 1px solid var(--border2);
+    position: relative;
+    box-shadow: 0 8px 32px rgba(10,21,32,0.24), 0 2px 8px rgba(10,21,32,0.12);
+  }
+  .modal-box::before, .modal-box::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+    z-index: 2;
+  }
+  .modal-box::before { top: -1px; left: -1px; border-top: 1.5px solid var(--gold2); border-left: 1.5px solid var(--gold2); }
+  .modal-box::after  { bottom: -1px; right: -1px; border-bottom: 1.5px solid var(--gold2); border-right: 1.5px solid var(--gold2); }
+  .modal-header {
+    background: var(--ink);
+    padding: 1.2rem 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+  }
+  .modal-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='40'%3E%3Cpath d='M0 20 Q50 5 100 20 Q150 35 200 20' fill='none' stroke='%231a4a7a' stroke-width='1' stroke-opacity='0.4'/%3E%3C/svg%3E");
+    background-size: 200px 40px;
+  }
+  .modal-header-gold { height: 1.5px; background: linear-gradient(to right, transparent, var(--gold2), var(--gold), var(--gold2), transparent); }
+  .modal-num {
+    width: 26px;
+    height: 26px;
+    border: 1px solid rgba(184,146,42,0.4);
+    color: var(--gold3);
+    font-size: 10px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    background: rgba(184,146,42,0.08);
+    letter-spacing: 0.04em;
+  }
+  .modal-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 300;
+    color: #fff;
+    letter-spacing: 0.06em;
+    position: relative;
+  }
+  .modal-heading-left { display: flex; align-items: center; gap: 12px; position: relative; }
+  .modal-close {
+    width: 28px;
+    height: 28px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.5);
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .15s;
+    position: relative;
+    font-family: 'Jost', sans-serif;
+    line-height: 1;
+  }
+  .modal-close:hover { background: rgba(255,255,255,0.12); color: #fff; }
+  .modal-body { padding: 1.6rem; }
+  .modal-label {
+    font-size: 9px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gold);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .modal-textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    font-size: 13px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    color: var(--text);
+    line-height: 1.8;
+    outline: none;
+    resize: vertical;
+    min-height: 160px;
+    background: var(--paper);
+    transition: border-color .15s;
+    border-radius: 0;
+  }
+  .modal-textarea:focus { border-color: var(--gold); }
+  .modal-footer {
+    padding: 1rem 1.6rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--cream);
+  }
+  .modal-hint { font-size: 10px; color: var(--muted); font-weight: 300; letter-spacing: 0.03em; }
+  .modal-save {
+    padding: 9px 24px;
+    background: var(--ink);
+    color: var(--gold3);
+    border: none;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: 'Jost', sans-serif;
+    transition: background .15s;
+  }
+  .modal-save:hover { background: var(--azure); }
+
+  @media print { .modal-overlay { display: none !important; } }
+
+  /* ── Footer ──────────────────────────────────────────── */
+  .form-footer {
+    padding: 1.4rem 3rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to right, var(--cream), #f0ece0);
+    border-radius: 0 0 1px 1px;
+  }
+  .footer-note { font-size: 10px; color: var(--muted); letter-spacing: 0.06em; font-weight: 300; }
+  .btn-row { display: flex; gap: 8px; }
+  .btn-primary {
+    padding: 11px 32px;
+    border: none;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-family: 'Jost', sans-serif;
+    background: var(--ink);
+    color: var(--gold3);
+    cursor: pointer;
+    transition: all .18s;
+    position: relative;
+  }
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 40%, rgba(184,146,42,0.08));
+    pointer-events: none;
+  }
+  .btn-primary:hover { background: var(--azure); }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="page-corner-tr"></div>
+  <div class="page-corner-bl"></div>
+
+  <div class="form-header">
+    <div class="header-gold-top"></div>
+    <div class="header-inner">
+      <div class="header-brand">
+        <div class="header-eyebrow">Azzurro Hotels Group</div>
+        <div class="header-title">Coaching <em>Record</em></div>
+        <div class="header-sub">Confidential &nbsp;·&nbsp; Internal use only &nbsp;·&nbsp; Human Resources</div>
+      </div>
+      <div class="header-right">
+        <div class="header-monogram">A</div>
+        <div class="header-badge">Staff Development</div>
+      </div>
+    </div>
+    <div class="header-gold-bottom"></div>
+  </div>
+
+  <div class="form-body">
+
+    <!-- Meta -->
+    <div class="meta-grid">
+      <div class="meta-field"><label>Staff member name</label><input type="text" id="staff-name" placeholder="Full name" oninput="refreshSummary()"></div>
+      <div class="meta-field"><label>Role</label><input type="text" id="staff-role" value="Front Desk Receptionist"></div>
+      <div class="meta-field span3">
+        <div class="meta-field"><label>Manager / Coach</label><input type="text" id="manager-name" placeholder="Full name" oninput="refreshSummary()"></div>
+        <div class="meta-field"><label>Date of session</label><input type="date" id="session-date" oninput="refreshSummary()"></div>
+        <div class="meta-field"><label>Session type</label>
+          <select id="session-type" onchange="refreshSummary()">
+            <option>Routine coaching</option>
+            <option>Performance concern</option>
+            <option>Post-incident debrief</option>
+            <option>Follow-up session</option>
+            <option>Probation review</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="section">
+      <div class="section-label">
+        <div class="section-num">1</div>
+        <div>
+          <div class="section-title">What are the issues?</div>
+          <div class="section-sub">Tick all that apply — the form will suggest the description and actions</div>
+        </div>
+      </div>
+
+      <div class="issue-grid" id="issue-grid">
+        <label class="issue-check" onclick="toggleCheck(event,this)"><input type="checkbox" data-key="reviews"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Reviews performance</span></label>
+        <label class="issue-check" onclick="toggleCheck(event,this)"><input type="checkbox" data-key="attendance"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Attendance, availability &amp; on-call compliance</span></label>
+        <label class="issue-check" onclick="toggleCheck(event,this)"><input type="checkbox" data-key="documentation"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Documentation &amp; EOS / handover</span></label>
+        <label class="issue-check" onclick="toggleCheck(event,this)"><input type="checkbox" data-key="accuracy"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Accuracy &amp; system handling</span></label>
+        <label class="issue-check" onclick="toggleCheck(event,this)"><input type="checkbox" data-key="compliance"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Compliance &amp; professional standards</span></label>
+        <label class="issue-check" onclick="toggleCheck(event,this)"><input type="checkbox" data-key="guestcomm"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Guest communication &amp; service quality</span></label>
+        <label class="issue-check" id="others-check" onclick="toggleOthers(event,this)"><input type="checkbox" data-key="others"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Others</span><span class="others-hint" id="others-hint"></span></label>
+      </div>
+
+      <div class="autofill-hint" id="autofill-hint">
+        <span>⚡ Ready to auto-fill the description and actions based on selected issues</span>
+        <button type="button" class="autofill-btn" onclick="autofillAll()">Auto-fill both →</button>
+      </div>
+
+      <div class="field-group">
+        <label>Issue description — include specific examples or incidents if applicable</label>
+        <textarea id="issue-description" placeholder="Tick issues above and click Auto-fill, or write your own description here..." oninput="refreshSummary()"></textarea>
+      </div>
+      <div class="field-group">
+        <label>Has this been raised before? If yes, when and how?</label>
+        <textarea id="raised-before" placeholder="e.g. Mentioned informally in team meeting on 5th March..." style="min-height:70px;" oninput="refreshSummary()"></textarea>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Staff response -->
+    <div class="staff-section">
+      <div class="staff-section-header">
+        <div class="staff-icon">✏</div>
+        <div>
+          <div class="section-title">Staff member's response</div>
+          <div class="section-sub">The receptionist's opportunity to explain their perspective on the issues raised</div>
+        </div>
+      </div>
+      <div class="field-group">
+        <label>Please explain your side — any context, challenges, or reasons you'd like noted</label>
+        <textarea id="staff-response" class="staff-area" placeholder="This is your opportunity to share any context, explain challenges, or raise concerns..." oninput="refreshSummary()"></textarea>
+      </div>
+      <div class="field-group">
+        <label>Is there anything you need from management to help you improve?</label>
+        <textarea id="staff-needs" class="staff-area" placeholder="e.g. More clarity on the review process, additional training, adjusted workload..." style="min-height:70px;" oninput="refreshSummary()"></textarea>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 2 -->
+    <div class="section">
+      <div class="section-label">
+        <div class="section-num">2</div>
+        <div>
+          <div class="section-title">What needs to be done?</div>
+          <div class="section-sub">Actions are suggested from ticked issues — edit freely</div>
+        </div>
+      </div>
+
+      <div id="actions-list"></div>
+      <button type="button" class="add-action-btn" onclick="addAction()">+ Add action</button>
+
+      <div class="divider" style="margin-top:1.5rem;"></div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.2rem;">
+        <div class="meta-field"><label>Review / follow-up date</label><input type="date" id="review-date" oninput="refreshSummary()"></div>
+        <div class="meta-field"><label>Expected improvement by</label>
+          <select id="improvement-by" onchange="refreshSummary()">
+            <option>Immediate (next shift)</option>
+            <option>Within 1 week</option>
+            <option selected>Within 2 weeks</option>
+            <option>Within 1 month</option>
+            <option>Ongoing</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field-group" style="margin-top:1rem;">
+        <label>Support being provided by manager / team</label>
+        <textarea id="support-provided" placeholder="e.g. Manager will observe 2 checkout interactions per week and provide real-time feedback..." style="min-height:70px;" oninput="refreshSummary()"></textarea>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 3: Staff commitment -->
+    <div class="promise-section">
+      <div class="promise-section-header">
+        <div class="promise-icon">✦</div>
+        <div>
+          <div class="section-title" style="font-family:'Cormorant Garamond',serif;color:var(--ink);">Staff commitment</div>
+          <div class="section-sub">The staff member's personal commitment to the actions agreed in this session</div>
+        </div>
+      </div>
+
+      <div class="promise-statement">
+        I, <strong id="promise-name-display">the staff member</strong>, have read and understood the issues raised and the actions required in this coaching record. I commit to the following:
+      </div>
+
+      <div class="promise-items">
+        <div class="promise-item"><div class="promise-bullet"></div><span>I will implement all agreed actions immediately and to the standard expected by Azzurro Hotels.</span></div>
+        <div class="promise-item"><div class="promise-bullet"></div><span>I will proactively raise any obstacles or challenges with my manager rather than allowing issues to continue unaddressed.</span></div>
+        <div class="promise-item"><div class="promise-bullet"></div><span>I understand that failure to meet the agreed improvements by the review date may result in further formal action.</span></div>
+      </div>
+
+      <div class="field-group">
+        <label style="font-size:9px;font-weight:500;text-transform:uppercase;letter-spacing:0.14em;color:#7c4dcc;margin-bottom:8px;display:block;">Additional personal commitment <span style="font-weight:300;color:var(--muted);">(optional — staff member may write their own words)</span></label>
+        <textarea id="staff-commitment" placeholder="e.g. I commit to asking for a review at every checkout call and sending the link within 60 seconds. I will log every ask in the handover..." style="min-height:80px;border-color:rgba(90,50,160,0.2);" oninput="updatePromiseName()"></textarea>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 4: Agreement -->
+    <div class="agreement-section">
+      <div class="agreement-section-header">
+        <div class="agreement-icon">⚖</div>
+        <div>
+          <div class="section-title">Agreement</div>
+          <div class="section-sub">Do you agree with the issues raised and the actions required? &nbsp;·&nbsp; <em>Staff member must tick to confirm</em></div>
+        </div>
+      </div>
+      <div class="agree-options">
+        <label class="agree-option" id="opt-agree" onclick="selectAgreement(event,'agree')">
+          <input type="radio" name="agreement" value="agree">
+          <div class="radio-circle"><div class="radio-dot"></div></div>
+          <div class="agree-text"><strong>I agree</strong><span>I understand the issues raised and am committed to making the improvements outlined.</span></div>
+        </label>
+      </div>
+    </div>
+
+    <!-- SECTION 5: Acknowledgement -->
+    <div class="ack-section">
+      <div class="ack-header">
+        <div class="ack-icon">✔</div>
+        <div>
+          <div class="section-title">Acknowledgement</div>
+          <div class="section-sub">Both parties confirm this session took place and the record is accurate</div>
+        </div>
+      </div>
+      <label class="reviewed-check" id="reviewed-check" onclick="toggleReviewed(event,this)">
+        <input type="checkbox">
+        <div class="rc-box" id="rc-box"></div>
+        <span style="font-size:13px;color:var(--text);">I confirm this coaching session has taken place and I have had the opportunity to review and respond to this record.</span>
+      </label>
+    </div>
+
+    <!-- SUMMARY SECTION -->
+    <div class="section">
+      <div class="section-label">
+        <div class="section-num" style="background:var(--gold);color:var(--ink);">↓</div>
+        <div>
+          <div class="section-title">Coaching Session Summary</div>
+          <div class="section-sub">Auto-generated from this form — updates as you fill it in</div>
+        </div>
+      </div>
+
+      <div class="summary-trigger" id="summary-trigger" onclick="toggleSummary()">
+        <div class="summary-trigger-left">
+          <div class="summary-icon">📋</div>
+          <div>
+            <h4>View / generate summary</h4>
+            <p>Click to expand — pulls everything from the form above</p>
+          </div>
+        </div>
+        <span class="summary-trigger-arrow">›</span>
+      </div>
+
+      <div class="summary-box" id="summary-box">
+        <!-- At-a-glance -->
+        <div class="summary-section-block">
+          <h5>Session overview</h5>
+          <p id="sum-overview">—</p>
+        </div>
+        <div class="summary-section-block">
+          <h5>Issues identified</h5>
+          <div class="summary-tags" id="sum-issues"><span class="summary-tag">No issues ticked yet</span></div>
+        </div>
+        <div class="summary-section-block">
+          <h5>Actions required</h5>
+          <div class="summary-tags" id="sum-actions"><span class="summary-tag">No actions added yet</span></div>
+        </div>
+        <div class="summary-section-block">
+          <h5>Staff response</h5>
+          <p id="sum-staff-response" style="font-size:13px;color:var(--text);line-height:1.6;">—</p>
+        </div>
+        <div class="summary-section-block">
+          <h5>Agreement status</h5>
+          <p id="sum-agreement">—</p>
+        </div>
+        <div class="summary-section-block">
+          <h5>Follow-up</h5>
+          <p id="sum-followup">—</p>
+        </div>
+
+        <!-- Full written summary -->
+        <div class="summary-full">
+          <h5>Full written summary (for filing)</h5>
+          <div class="summary-full-text" id="sum-full-text">Click the button below to generate the full written summary.</div>
+          <button type="button" class="summary-gen-btn" onclick="buildFullSummary()">Generate full summary</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <div class="section-label">
+        <div class="section-num" style="background:var(--muted);color:#fff;">+</div>
+        <div>
+          <div class="section-title">Additional manager notes</div>
+          <div class="section-sub">Optional</div>
+        </div>
+      </div>
+      <textarea id="extra-notes" placeholder="Optional additional notes..." style="min-height:70px;"></textarea>
+    </div>
+
+  </div>
+
+  <!-- OTHERS ISSUE MODAL -->
+  <div class="others-modal-overlay" id="others-modal" onclick="closeOthersOnOverlay(event)">
+    <div class="others-modal-box">
+      <div class="modal-header">
+        <div class="modal-heading-left">
+          <div class="modal-num">?</div>
+          <div class="modal-heading">Describe the other issue(s)</div>
+        </div>
+        <button type="button" class="modal-close" onclick="saveOthersModal()">×</button>
+      </div>
+      <div class="modal-header-gold"></div>
+      <div class="modal-body">
+        <label class="modal-label">Please describe the issue(s) not listed above</label>
+        <textarea class="modal-textarea" id="others-textarea" placeholder="e.g. Attitude towards guests during late-night calls, failure to escalate urgent maintenance issues, repeated late starts to shift..." style="min-height:140px;"></textarea>
+      </div>
+      <div class="modal-footer">
+        <span class="modal-hint">This will be added to the issue description</span>
+        <button type="button" class="modal-save" onclick="saveOthersModal()">Confirm issue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACTION EDIT MODAL -->
+  <div class="modal-overlay" id="action-modal" onclick="closeModalOnOverlay(event)">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-heading-left">
+          <div class="modal-num" id="modal-num">1</div>
+          <div class="modal-heading">Edit action item</div>
+        </div>
+        <button type="button" class="modal-close" onclick="saveModal()">×</button>
+      </div>
+      <div class="modal-header-gold"></div>
+      <div class="modal-body">
+        <label class="modal-label">Action description</label>
+        <textarea class="modal-textarea" id="modal-textarea" placeholder="Describe the action clearly and specifically..."></textarea>
+      </div>
+      <div class="modal-footer">
+        <span class="modal-hint">All changes are saved automatically</span>
+        <button type="button" class="modal-save" onclick="saveModal()">Save action</button>
+      </div>
+    </div>
+  </div>
+  <div class="print-summary" id="print-summary">
+    <div class="print-confidential-bar">Private &amp; Confidential &nbsp;·&nbsp; Human Resources Document &nbsp;·&nbsp; Azzurro Hotels Group</div>
+    <div class="print-header-bar">
+      <div class="print-header-left">
+        <div class="print-header-eyebrow">Azzurro Hotels Group</div>
+        <div class="print-header-org">Staff <em>Coaching Record</em></div>
+      </div>
+      <div class="print-header-right">
+        <div class="print-header-doc-badge">Human Resources</div>
+        <div class="print-header-generated" id="print-footer-date">—</div>
+      </div>
+    </div>
+    <div class="print-header-gold"></div>
+    <div class="print-body">
+      <div class="print-doc-title">Coaching Session <em>Record</em></div>
+      <div class="print-doc-sub">Official performance coaching record — to be retained on the staff member's HR file</div>
+      <div class="print-title-rule"></div>
+      <div class="print-meta-grid" id="print-meta-grid"></div>
+      <div id="print-sections"></div>
+      <div class="print-footer-area">
+        <div class="print-footer-notice">This document is private and confidential. It has been prepared as part of Azzurro Hotels Group's staff performance and coaching process. The contents of this record must not be disclosed to any third party without the written consent of the Human Resources department. This document should be retained securely on the staff member's HR file and may be referred to in any future performance or disciplinary proceedings.</div>
+        <div class="print-footer-row">
+          <span>Azzurro Hotels Group &nbsp;·&nbsp; Staff Coaching Record</span>
+          <span id="print-footer-right">—</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-footer">
+    <div class="footer-note">Confidential · File securely after completion</div>
+    <div class="btn-row">
+      <button type="button" class="btn-primary" onclick="saveAsPDF()">⬇ Download PDF</button>
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+// ── Init ─────────────────────────────────────────────────────
+const today = new Date();
+document.getElementById('session-date').value = today.toISOString().split('T')[0];
+document.getElementById('review-date').value = new Date(today.getTime() + 14*86400000).toISOString().split('T')[0];
+const dateStr = today.toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' });
+
+
+// ── Promise section ───────────────────────────────────────────
+function updatePromiseName() {
+  const name = document.getElementById('staff-name').value.trim()
+    || document.getElementById('promise-sig').value.trim()
+    || 'the staff member';
+  document.getElementById('promise-name-display').textContent = name;
+}
+
+// Auto-update promise name when staff name is typed
+document.getElementById('staff-name').addEventListener('input', updatePromiseName);
+
+// ── Safe date formatter — avoids timezone off-by-one ─────────
+function formatDate(val) {
+  if (!val) return dateStr;
+  return new Date(val + 'T12:00:00').toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' });
+}
+
+// ── Issue templates ───────────────────────────────────────────
+const issueData = {
+  reviews: {
+    label: 'Reviews performance',
+    desc: 'has not been meeting the expected standard for guest review solicitation. Consistently requesting reviews is a core performance metric for all remote receptionists at Azzurro Hotels, and the team\'s online reputation depends on every checkout conversation including a well-timed, confident review ask.',
+    actions: [
+      'Ask for a review at the end of every checkout call without exception — use the approved wording: "Before you go — if you enjoyed your stay, we would really appreciate a quick review. I can send the link straight to your WhatsApp right now."',
+      'Send the review link immediately after the ask — within 60 seconds via WhatsApp or SMS. Have the link copied and ready before every checkout call begins.',
+      'Log every review ask in the shift handover notes — write "Review asked — [guest name / property]" regardless of whether the guest agreed. Management tracks this weekly.'
+    ]
+  },
+  attendance: {
+    label: 'Attendance, availability & on-call compliance',
+    desc: 'has not been meeting the required standards for attendance, on-call availability, and shift compliance. As a remote receptionist, being reachable and present during assigned hours is a non-negotiable requirement — guests and the property depend on live cover being in place at all times.',
+    actions: [
+      'Be logged in and available for calls at the exact start of your shift, every shift. All calls must be answered or returned within 10 minutes — if unavailable, send the guest a WhatsApp within 5 minutes confirming a callback time.',
+      'Communicate any unavailability — illness, technical issues, or emergencies — to your manager via WhatsApp before your shift begins or as soon as the issue arises. Silent no-shows are not acceptable.',
+      'Do not end your shift until your handover is complete and your replacement has confirmed they are live. Do not log off with an unresolved guest issue — stay until it is closed or formally handed over.'
+    ]
+  },
+  documentation: {
+    label: 'Documentation & EOS / handover',
+    desc: 'has not been completing end-of-shift (EOS) documentation and handover notes to the required standard. Accurate, complete handovers are critical for team continuity — incomplete or missing notes leave the next shift blind to active guest issues, pending tasks, and important context.',
+    actions: [
+      'Complete your EOS handover using the approved template before the end of every shift without exception. A shift is not finished until the handover is submitted.',
+      'Every handover must include all active guest issues and their status, GOKI codes sent or pending, ID verifications outstanding, review asks made, and any property issues reported.',
+      'Read the incoming handover at the start of every shift before taking any calls or acting on any active issues.'
+    ]
+  },
+  accuracy: {
+    label: 'Accuracy & system handling',
+    desc: 'has been making errors in system handling, data entry, or guest communications that have led to incorrect information being provided or actions being taken. Accuracy in a remote hospitality environment is critical — mistakes with GOKI codes, booking details, or guest data have direct consequences for guest experience and property security.',
+    actions: [
+      'Double-check every GOKI code before sending — confirm the property name, arrival date, and guest name match the booking. Never send a GOKI code before ID verification is confirmed as complete.',
+      'When updating booking details, confirm the change in writing with the guest after making it in the system. Do not rely on verbal confirmation alone.',
+      'Log all system actions in your shift notes — GOKI codes issued, booking changes made, ID verifications completed. Report any system errors or discrepancies to your manager immediately via WhatsApp.'
+    ]
+  },
+  compliance: {
+    label: 'Compliance & professional standards',
+    desc: 'has not been consistently meeting the compliance and professional standards required of a remote receptionist at Azzurro Hotels. These standards exist to protect guests, the properties, and the team — non-compliance is not a minor issue and will be treated as a formal performance matter.',
+    actions: [
+      'ID verification must be completed for every guest before the GOKI code is issued — without exception. If a guest refuses, do not issue the code and escalate to your manager immediately.',
+      'All guest communication must remain professional at all times. Any guest complaint, incident, or escalation must be reported to your manager on the same shift it occurs using the incident reporting process.',
+      'Guest data must never be shared with anyone other than the verified guest. Compliance with all Azzurro Hotels SOPs and policies is a condition of employment — if uncertain about any policy, ask your manager before acting.'
+    ]
+  },
+  guestcomm: {
+    label: 'Guest communication & service quality',
+    desc: 'has not been consistently meeting the expected standard for guest communication and service quality. This applies across all guest touchpoints — in-person at the front desk, over the phone, and via WhatsApp or message. Every interaction, regardless of channel, represents Azzurro Hotels and directly determines guest satisfaction, review scores, and the likelihood of repeat bookings.',
+    actions: [
+      'In person — greet every guest who approaches the desk immediately, make eye contact, and smile before saying a word. Use the guest\'s name as soon as it is known. Never make a guest wait at the desk without acknowledgement, even if you are occupied — a brief "I\'ll be right with you" is always required.',
+      'On calls and messages — open every interaction with the approved greeting and a warm, unhurried tone. For complaints or concerns on any channel, follow the LEAP structure: Listen fully, Empathise, Apologise for the impact, then Propose a clear solution. Never improvise or skip steps under pressure.',
+      'After any complex interaction — whether in person, on a call, or via message — follow up in writing with a WhatsApp or SMS summary of what was agreed or actioned. This confirms accuracy, protects both parties, and gives the guest confidence that their issue has been properly handled.'
+    ]
+  },
+  others: {
+    label: 'Others',
+    desc: '',
+    actions: [
+      'Review the specific issue raised with your manager and confirm you fully understand what is expected of you going forward.',
+      'Commit to a measurable improvement target agreed with your manager — define what success looks like and by when it will be reviewed.'
+    ]
+  }
+};
+
+let agreementValue = '';
+
+// ── Checkbox logic ────────────────────────────────────────────
+function toggleCheck(e, el) {
+  e.preventDefault();
+  el.classList.toggle('checked');
+  const checked = getChecked();
+  const hint = document.getElementById('autofill-hint');
+  hint.classList.toggle('show', checked.length > 0);
+  refreshSummary();
+}
+
+function getChecked() {
+  return Array.from(document.querySelectorAll('.issue-check.checked input')).map(i => i.dataset.key);
+}
+
+function getCheckedLabels() {
+  return Array.from(document.querySelectorAll('.issue-check.checked .check-label')).map(el => {
+    const key = el.closest('.issue-check').querySelector('input').dataset.key;
+    if (key === 'others' && othersText) return 'Others: ' + othersText;
+    return el.textContent;
+  });
+}
+
+// ── Auto-fill ─────────────────────────────────────────────────
+function autofillAll() {
+  const keys = getChecked();
+  if (!keys.length) return;
+  const staffName = document.getElementById('staff-name').value.trim() || 'The staff member';
+
+  const descParts = keys.map(k => {
+    if (k === 'others') return othersText ? othersText : null;
+    return issueData[k]?.desc;
+  }).filter(Boolean);
+  let desc = staffName + ' ';
+  if (descParts.length === 1) {
+    desc += descParts[0];
+  } else {
+    desc += descParts[0] + ' Additionally, ' + staffName.toLowerCase() + ' ' + descParts.slice(1).join(' Furthermore, ' + staffName.toLowerCase() + ' ');
+  }
+  const descEl = document.getElementById('issue-description');
+  descEl.value = desc;
+  descEl.classList.add('autofilled');
+  setTimeout(() => descEl.classList.remove('autofilled'), 2000);
+
+  const allActions = keys.flatMap(k => issueData[k]?.actions || []);
+  const list = document.getElementById('actions-list');
+  list.innerHTML = '';
+  allActions.forEach((action, i) => {
+    const div = createActionItem(i + 1, action);
+    div.querySelector('.action-input').classList.add('autofilled');
+    setTimeout(() => div.querySelector('.action-input').classList.remove('autofilled'), 2000);
+    list.appendChild(div);
+  });
+  actionCount = allActions.length;
+  refreshSummary();
+}
+
+// ── Action modal ─────────────────────────────────────────────
+let activeActionEl = null;
+
+function openModal(divEl) {
+  const preview = divEl.querySelector('.action-input');
+  const numEl = divEl.querySelector('.action-num');
+  activeActionEl = divEl;
+  document.getElementById('modal-num').textContent = numEl.textContent;
+  document.getElementById('modal-textarea').value = preview.dataset.value || '';
+  document.getElementById('action-modal').classList.add('open');
+  setTimeout(() => document.getElementById('modal-textarea').focus(), 50);
+}
+
+function closeModal() {
+  document.getElementById('action-modal').classList.remove('open');
+  activeActionEl = null;
+}
+
+function closeModalOnOverlay(e) {
+  if (e.target === document.getElementById('action-modal') && activeActionEl) {
+    saveModal();
+  }
+}
+
+function saveModal() {
+  if (!activeActionEl) return;
+  const textarea = document.getElementById('modal-textarea');
+  const val = textarea.value.trim();
+  const preview = activeActionEl.querySelector('.action-input');
+  preview.dataset.value = val;
+  preview.textContent = val || 'Click to add action...';
+  preview.style.color = val ? '' : 'var(--muted)';
+  closeModal();
+  refreshSummary();
+}
+
+// ── Others issue modal ────────────────────────────────────────
+let othersText = '';
+
+function toggleOthers(e, el) {
+  e.preventDefault();
+  // Always open the modal — saveOthersModal decides whether to check or uncheck
+  openOthersModal();
+}
+
+function openOthersModal() {
+  document.getElementById('others-textarea').value = othersText;
+  document.getElementById('others-modal').classList.add('open');
+  setTimeout(() => document.getElementById('others-textarea').focus(), 50);
+}
+
+function closeOthersOnOverlay(e) {
+  if (e.target === document.getElementById('others-modal')) saveOthersModal();
+}
+
+function saveOthersModal() {
+  const val = document.getElementById('others-textarea').value.trim();
+  othersText = val;
+  const check = document.getElementById('others-check');
+  if (val) {
+    check.classList.add('checked');
+    const short = val.length > 28 ? val.slice(0, 26) + '…' : val;
+    document.getElementById('others-hint').textContent = '· ' + short;
+  } else {
+    check.classList.remove('checked');
+    document.getElementById('others-hint').textContent = '';
+  }
+  document.getElementById('others-modal').classList.remove('open');
+  document.getElementById('autofill-hint').classList.toggle('show', getChecked().length > 0);
+  refreshSummary();
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    if (document.getElementById('others-modal').classList.contains('open')) saveOthersModal();
+    if (document.getElementById('action-modal').classList.contains('open')) saveModal();
+  }
+});
+
+// ── Actions management ────────────────────────────────────────
+let actionCount = 1;
+
+function createActionItem(num, value) {
+  const div = document.createElement('div');
+  div.className = 'action-item';
+
+  const numEl = document.createElement('div');
+  numEl.className = 'action-num';
+  numEl.textContent = num;
+
+  const preview = document.createElement('div');
+  preview.className = 'action-input';
+  preview.dataset.value = value || '';
+  preview.textContent = value || 'Click to add action...';
+  if (!value) preview.style.color = 'var(--muted)';
+  preview.addEventListener('click', () => openModal(div));
+
+  const delBtn = document.createElement('button');
+  delBtn.type = 'button';
+  delBtn.className = 'action-del';
+  delBtn.title = 'Remove';
+  delBtn.textContent = '×';
+  delBtn.addEventListener('click', (e) => { e.stopPropagation(); removeAction(delBtn); });
+
+  div.appendChild(numEl);
+  div.appendChild(preview);
+  div.appendChild(delBtn);
+  return div;
+}
+
+function addAction() {
+  const list = document.getElementById('actions-list');
+  const newNum = list.querySelectorAll('.action-item').length + 1;
+  const div = createActionItem(newNum, '');
+  list.appendChild(div);
+  actionCount = newNum;
+  openModal(div);
+}
+
+function removeAction(btn) {
+  btn.closest('.action-item').remove();
+  document.querySelectorAll('.action-item .action-num').forEach((el,i) => el.textContent = i+1);
+  actionCount = document.querySelectorAll('.action-item').length;
+  refreshSummary();
+}
+
+// ── Agreement ─────────────────────────────────────────────────
+function selectAgreement(e, val) {
+  e.preventDefault();
+  document.getElementById('opt-agree').classList.add('selected-agree');
+  agreementValue = val;
+  refreshSummary();
+}
+
+function toggleReviewed(e, el) {
+  e.preventDefault();
+  el.classList.toggle('checked');
+  document.getElementById('rc-box').textContent = el.classList.contains('checked') ? '✓' : '';
+}
+
+// ── Summary ───────────────────────────────────────────────────
+function toggleSummary() {
+  const trigger = document.getElementById('summary-trigger');
+  const box = document.getElementById('summary-box');
+  trigger.classList.toggle('open');
+  box.classList.toggle('open');
+  if (box.classList.contains('open')) refreshSummary();
+}
+
+function refreshSummary() {
+  const staffName = document.getElementById('staff-name').value || 'Staff member';
+  const managerName = document.getElementById('manager-name').value || 'Manager';
+  const sessionType = document.getElementById('session-type').value;
+  const sessionDate = formatDate(document.getElementById('session-date').value);
+  const reviewDate = document.getElementById('review-date').value ? formatDate(document.getElementById('review-date').value) : '—';
+
+  // Overview
+  document.getElementById('sum-overview').textContent =
+    `${sessionType} session between ${managerName} and ${staffName} on ${sessionDate}.`;
+
+  // Issues
+  const issueLabels = getCheckedLabels();
+  const issuesEl = document.getElementById('sum-issues');
+  issuesEl.innerHTML = issueLabels.length
+    ? issueLabels.map(l => `<span class="summary-tag issue">${l}</span>`).join('')
+    : '<span class="summary-tag">No issues ticked yet</span>';
+
+  // Actions
+  const actions = Array.from(document.querySelectorAll('.action-input')).map(i => (i.dataset.value || '').trim()).filter(v => v);
+  const actionsEl = document.getElementById('sum-actions');
+  actionsEl.innerHTML = actions.length
+    ? actions.map(a => `<span class="summary-tag action">${a.length > 60 ? a.slice(0,57)+'...' : a}</span>`).join('')
+    : '<span class="summary-tag">No actions added yet</span>';
+
+  // Staff response
+  const staffResp = document.getElementById('staff-response').value.trim();
+  document.getElementById('sum-staff-response').textContent = staffResp || 'No response provided yet.';
+
+  // Agreement
+  const agreementLabels = { agree:'Agreed', partial:'Partially agreed', disagree:'Disagreed', '':'Not yet recorded' };
+  const agEl = document.getElementById('sum-agreement');
+  const agTag = document.createElement('span');
+  agTag.className = 'summary-tag ' + (agreementValue === 'agree' ? 'agree' : agreementValue ? 'disagree' : '');
+  agTag.textContent = agreementLabels[agreementValue] || '—';
+  agEl.innerHTML = '';
+  agEl.appendChild(agTag);
+
+  // Follow-up
+  const improvement = document.getElementById('improvement-by').value;
+  document.getElementById('sum-followup').textContent =
+    `Follow-up scheduled: ${reviewDate}. Expected improvement: ${improvement}.`;
+}
+
+function buildFullSummary() {
+  const staffName = document.getElementById('staff-name').value || 'the staff member';
+  const managerName = document.getElementById('manager-name').value || 'the manager';
+  const sessionType = document.getElementById('session-type').value.toLowerCase();
+  const sessionDate = formatDate(document.getElementById('session-date').value);
+  const reviewDate = document.getElementById('review-date').value ? formatDate(document.getElementById('review-date').value) : 'a date to be confirmed';
+  const improvement = document.getElementById('improvement-by').value.toLowerCase();
+  const issueLabels = getCheckedLabels();
+  const issueDesc = document.getElementById('issue-description').value.trim();
+  const raisedBefore = document.getElementById('raised-before').value.trim();
+  const actions = Array.from(document.querySelectorAll('.action-input')).map(i => (i.dataset.value || i.value || '').trim()).filter(v => v);
+  const support = document.getElementById('support-provided').value.trim();
+  const staffResponse = document.getElementById('staff-response').value.trim();
+  const staffNeeds = document.getElementById('staff-needs').value.trim();
+  const agreementLabels = { agree:'agreed with', partial:'partially agreed with', disagree:'disagreed with', '':'did not yet record a position on' };
+
+  let summary = '';
+
+  // Para 1: Overview and issues
+  summary += `COACHING SESSION SUMMARY\n`;
+  summary += `Date: ${sessionDate}\n\n`;
+
+  summary += `A ${sessionType} session was conducted on ${sessionDate} between ${managerName} (coaching manager) and ${staffName} (front desk receptionist). `;
+  if (issueLabels.length) {
+    summary += `The session was convened to address the following identified areas of concern: ${issueLabels.join(', ')}.`;
+  } else {
+    summary += `The purpose of the session was to review recent performance and provide structured coaching.`;
+  }
+  if (issueDesc) {
+    summary += `\n\n${issueDesc}`;
+  }
+  if (raisedBefore) {
+    summary += ` ${raisedBefore}`;
+  }
+
+  // Para 2: Actions
+  summary += `\n\nACTIONS AGREED\n`;
+  if (actions.length) {
+    summary += `The following actions were agreed during the session and are expected to be implemented ${improvement}:\n\n`;
+    actions.forEach((a, i) => { summary += `${i+1}. ${a}\n`; });
+  } else {
+    summary += `Actions were discussed during the session and are to be documented.`;
+  }
+  if (support) {
+    summary += `\nSupport from management: ${support}`;
+  }
+
+  // Para 3: Staff response
+  summary += `\n\nSTAFF RESPONSE\n`;
+  if (staffResponse) {
+    summary += `${staffName} provided the following response during the session: "${staffResponse}"`;
+  } else {
+    summary += `${staffName} did not provide a written response at the time of this record.`;
+  }
+  if (staffNeeds) {
+    summary += ` ${staffName} also noted the following support needs: "${staffNeeds}"`;
+  }
+
+  // Para 4: Agreement and next steps
+  summary += `\n\nAGREEMENT & NEXT STEPS\n`;
+  const agText = agreementLabels[agreementValue] || 'did not yet record a position on';
+  summary += `${staffName} ${agText} the issues and actions outlined in this record. `;
+  summary += `A follow-up session is scheduled for ${reviewDate} to review progress against the agreed actions. `;
+  summary += `Both parties have been asked to sign this record as confirmation that the coaching session took place.`;
+
+  document.getElementById('sum-full-text').textContent = summary;
+}
+
+// ── Save as PDF ───────────────────────────────────────────────
+function saveAsPDF() {
+  const staffName       = document.getElementById('staff-name').value.trim() || '—';
+  const staffRole       = document.getElementById('staff-role').value.trim() || '—';
+  const managerName     = document.getElementById('manager-name').value.trim() || '—';
+  const sessionDateVal  = document.getElementById('session-date').value;
+  const sessionDate     = sessionDateVal ? formatDate(sessionDateVal) : '—';
+  const sessionType     = document.getElementById('session-type').value;
+  const reviewDateVal   = document.getElementById('review-date').value;
+  const reviewDate      = reviewDateVal ? formatDate(reviewDateVal) : 'To be confirmed';
+  const improvement     = document.getElementById('improvement-by').value;
+  const issueLabels     = getCheckedLabels();
+  const issueDesc       = document.getElementById('issue-description').value.trim();
+  const raisedBefore    = document.getElementById('raised-before').value.trim();
+  const actions         = Array.from(document.querySelectorAll('.action-input')).map(i => (i.dataset.value || '').trim()).filter(v => v);
+  const support         = document.getElementById('support-provided').value.trim();
+  const staffResponse   = document.getElementById('staff-response').value.trim();
+  const staffNeeds      = document.getElementById('staff-needs').value.trim();
+  const staffCommitment = document.getElementById('staff-commitment').value.trim();
+  const agreed          = document.getElementById('opt-agree').classList.contains('selected-agree');
+  const acknowledged    = document.getElementById('reviewed-check').classList.contains('checked');
+  const extraNotes      = document.getElementById('extra-notes').value.trim();
+
+  // ── Meta grid (6 cells, 2 rows × 3 columns) ──────────────
+  const metaCells = [
+    { label: 'Staff Member',        value: staffName,    sub: staffRole },
+    { label: 'Coaching Manager',    value: managerName },
+    { label: 'Date of Session',     value: sessionDate },
+    { label: 'Session Type',        value: sessionType },
+    { label: 'Follow-Up Date',      value: reviewDate },
+    { label: 'Improvement Expected',value: improvement },
+  ];
+  document.getElementById('print-meta-grid').innerHTML = metaCells.map(m =>
+    `<div class="print-meta-cell">
+      <div class="print-meta-label">${m.label}</div>
+      <div class="print-meta-value">${m.value}</div>
+      ${m.sub ? `<div class="print-meta-sub">${m.sub}</div>` : ''}
+    </div>`
+  ).join('');
+
+  document.getElementById('print-footer-date').textContent = 'Generated ' + dateStr;
+  document.getElementById('print-footer-right').textContent = sessionDate + '  ·  ' + staffName;
+
+  // ── Helpers ───────────────────────────────────────────────
+  let html = '';
+  const sec  = (t, b) => { html += `<div class="print-section"><div class="print-section-heading">${t}</div>${b}</div>`; };
+  const p    = t => `<p class="print-section-text">${t}</p>`;
+  const note = t => `<p class="print-section-note">${t}</p>`;
+  const none = t => `<p class="print-not-provided">${t}</p>`;
+
+  // ── 1. Session Overview ───────────────────────────────────
+  sec('1. Session Overview',
+    p(`A <strong>${sessionType}</strong> was conducted on <strong>${sessionDate}</strong> between <strong>${managerName}</strong> (Coaching Manager) and <strong>${staffName}</strong> (${staffRole}). This record documents the issues discussed, the agreed corrective actions, the staff member's response, and the commitment to improvement made during this session. This record forms part of the staff member's official HR file.`)
+  );
+
+  // ── 2. Issues Identified ──────────────────────────────────
+  let issueBody = '';
+  if (issueLabels.length) {
+    issueBody += p('The following areas of concern were identified and discussed during this session:');
+    issueBody += `<ul class="print-issue-list">${issueLabels.map(l => `<li><span class="print-issue-dot">▸</span>${l}</li>`).join('')}</ul>`;
+  }
+  issueBody += issueDesc
+    ? p(issueDesc)
+    : none('No detailed issue description was recorded at the time of this session.');
+  issueBody += raisedBefore
+    ? note(`<strong>Previously raised:</strong> ${raisedBefore}`)
+    : note('Previously raised: This matter has not been previously documented in a formal coaching record.');
+  sec('2. Issues Identified', issueBody);
+
+  // ── 3. Staff Member's Response ────────────────────────────
+  let responseBody = staffResponse
+    ? p(`${staffName} provided the following response during the session: &ldquo;${staffResponse}&rdquo;`)
+    : none(`${staffName} did not provide a written response at the time of this record. The coaching manager should request a written response be submitted within 5 working days if one is required.`);
+  responseBody += staffNeeds
+    ? note(`<strong>Support requested by staff member:</strong> ${staffNeeds}`)
+    : note('Support requested: None recorded at the time of this session.');
+  sec("3. Staff Member's Response", responseBody);
+
+  // ── 4. Actions Required ───────────────────────────────────
+  let actionsBody = '';
+  if (actions.length) {
+    actionsBody += p(`The following actions have been agreed and are required to be implemented <strong>${improvement.toLowerCase()}</strong>. Progress against these actions will be reviewed at the follow-up session scheduled for <strong>${reviewDate}</strong>.`);
+    actionsBody += `<ul class="print-action-list">${actions.map((a,i) => `<li><span class="print-action-num">${i+1}</span><span>${a}</span></li>`).join('')}</ul>`;
+  } else {
+    actionsBody += none('No specific actions were recorded at the time of this session. Actions should be agreed and documented at the earliest opportunity.');
+  }
+  actionsBody += support
+    ? note(`<strong>Management support to be provided:</strong> ${support}`)
+    : note('Management support: To be agreed and confirmed between the coaching manager and the staff member prior to the follow-up session.');
+  sec('4. Actions Required', actionsBody);
+
+  // ── 5. Staff Commitment ───────────────────────────────────
+  let commitBody = `<div class="print-commitment-block">
+    <p class="print-commitment-statement">I, <strong>${staffName}</strong>, confirm that I have read and understood the issues raised and the actions required in this coaching record. I make the following commitments:</p>
+    <ul class="print-commitment-items">
+      <li><span class="print-commitment-dot">▸</span>I will implement all agreed actions immediately and to the standard expected by Azzurro Hotels Group.</li>
+      <li><span class="print-commitment-dot">▸</span>I will proactively raise any obstacles or challenges with my manager rather than allowing issues to continue unaddressed.</li>
+      <li><span class="print-commitment-dot">▸</span>I understand that failure to meet the agreed improvements by the review date may result in further formal action being taken under Azzurro Hotels Group's performance management policy.</li>
+    </ul>
+  </div>`;
+  if (staffCommitment) commitBody += note(`<strong>Additional personal commitment recorded:</strong> ${staffCommitment}`);
+  sec('5. Staff Commitment', commitBody);
+
+  // ── 6. Agreement & Acknowledgement ───────────────────────
+  const agreeStatus = agreed ? 'Agreed' : 'Not Recorded';
+  const ackStatus   = acknowledged ? 'Confirmed' : 'Not Confirmed';
+  let agreementBody = agreed
+    ? p(`<strong>${staffName}</strong> has reviewed this record and formally <strong>agrees</strong> with the issues raised and the actions required. By confirming agreement, ${staffName} acknowledges their commitment to the improvements outlined in this document.`)
+    : p(`Formal agreement was not recorded by ${staffName} at the time of this session. The coaching manager should follow up to obtain written confirmation. This record remains valid and on file regardless of whether agreement is formally recorded.`);
+  agreementBody += acknowledged
+    ? p(`Both parties have confirmed this coaching session took place on ${sessionDate} and that the staff member has had the opportunity to review and respond to the content of this record.`)
+    : p(`Session acknowledgement has not yet been confirmed by the staff member. Confirmation should be obtained and this record updated before it is formally filed.`);
+  agreementBody += `<div class="print-status-row" style="margin-top:0.5rem;">
+    <div class="print-status-item">Agreement: <span class="print-badge ${agreed ? 'green' : 'grey'}">${agreeStatus}</span></div>
+    <div class="print-status-item">Acknowledgement: <span class="print-badge ${acknowledged ? 'green' : 'grey'}">${ackStatus}</span></div>
+  </div>`;
+  sec('6. Agreement & Acknowledgement', agreementBody);
+
+  // ── 7. Follow-Up & Next Steps ─────────────────────────────
+  let followBody = p(`A follow-up coaching session is scheduled for <strong>${reviewDate}</strong>. At this session, the coaching manager will review progress against each of the agreed actions listed in Section 4. If the required standard of improvement has been achieved and sustained, this matter will be considered resolved and recorded accordingly. If the required improvements have not been made by the review date, further formal action may be initiated in line with Azzurro Hotels Group's performance management policy.`);
+  followBody += p(`Expected improvement timeline: <strong>${improvement}</strong>.`);
+  if (support) followBody += note(`<strong>Ongoing management support committed:</strong> ${support}`);
+  sec('7. Follow-Up & Next Steps', followBody);
+
+  // ── 8. Additional Manager Notes ───────────────────────────
+  if (extraNotes) sec('8. Additional Manager Notes', p(extraNotes));
+
+  document.getElementById('print-sections').innerHTML = html;
+  window.onafterprint = () => { window.onafterprint = null; clearForm(); };
+  setTimeout(() => window.print(), 200);
+}
+
+function clearForm() {
+  // Text inputs and textareas
+  ['staff-name','manager-name','staff-role','issue-description','raised-before',
+   'support-provided','staff-response','staff-needs','extra-notes','staff-commitment'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = el.id === 'staff-role' ? 'Front Desk Receptionist' : '';
+  });
+
+  // Reset dates
+  const t = new Date();
+  document.getElementById('session-date').value = t.toISOString().split('T')[0];
+  document.getElementById('review-date').value = new Date(t.getTime() + 14*86400000).toISOString().split('T')[0];
+
+  // Reset selects
+  document.getElementById('session-type').selectedIndex = 0;
+  document.getElementById('improvement-by').selectedIndex = 2;
+
+  // Uncheck all issue checkboxes
+  document.querySelectorAll('.issue-check').forEach(el => el.classList.remove('checked'));
+  document.getElementById('autofill-hint').classList.remove('show');
+
+  // Reset promise section
+  const staffCommitmentEl = document.getElementById('staff-commitment');
+  if (staffCommitmentEl) staffCommitmentEl.value = '';
+  document.getElementById('promise-name-display').textContent = 'the staff member';
+
+  // Reset Others
+  othersText = '';
+  document.getElementById('others-textarea').value = '';
+  document.getElementById('others-hint').textContent = '';
+
+  // Clear actions list
+  document.getElementById('actions-list').innerHTML = '';
+
+  // Reset agreement
+  document.getElementById('opt-agree').classList.remove('selected-agree');
+  agreementValue = '';
+
+  // Reset acknowledgement
+  document.getElementById('reviewed-check').classList.remove('checked');
+  document.getElementById('rc-box').textContent = '';
+
+  // Close summary if open
+  document.getElementById('summary-trigger').classList.remove('open');
+  document.getElementById('summary-box').classList.remove('open');
+  document.getElementById('sum-full-text').textContent = 'Click the button below to generate the full written summary.';
+  document.getElementById('sum-overview').textContent = '—';
+  document.getElementById('sum-issues').innerHTML = '<span class="summary-tag">No issues ticked yet</span>';
+  document.getElementById('sum-actions').innerHTML = '<span class="summary-tag">No actions added yet</span>';
+  document.getElementById('sum-staff-response').textContent = '—';
+  document.getElementById('sum-agreement').textContent = '—';
+  document.getElementById('sum-followup').textContent = '—';
+
+  // Scroll back to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
